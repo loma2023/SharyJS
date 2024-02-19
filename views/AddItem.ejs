@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="Css/style.css">
+    <title>اضافة صنف</title>
+</head>
+
+<body>
+
+    <header>
+    </header>
+
+    <% items.forEach(item=> { %>
+        <div class="ObjectProducts" style="display: none;">
+            <span class="id"><%= item._id %></span>
+            <span class="name"><%= item.NameItem %></span>
+            <span class="Details"><%= item.details %></span>
+            <span class="main_price"><%= item.main_price %></span>
+            <span class="old_price"><%= item.old_price %></span>
+            <span class="price1"><%= item.price1 %></span>
+            <span class="price2"><%= item.price2 %></span>
+            <span class="price3"><%= item.price3 %></span>
+            <span class="price4"><%= item.price4 %></span>
+            <span class="price5"><%= item.price5 %></span>
+            <span class="price6"><%= item.price6 %></span>
+            <span class="price7"><%= item.price7 %></span>
+            <span class="photo1">data:image/<%= item.MainImg.contentType %>;base64,<%=item.MainImg.data.toString('base64')%></span>
+            <span class="photo2">data:image/<%= item.SmallImg1.contentType %>;base64,<%=item.SmallImg1.data.toString('base64')%></span>
+            <span class="photo3">data:image/<%= item.SmallImg2.contentType %>;base64,<%=item.SmallImg2.data.toString('base64')%></span>
+            <span class="photo4">data:image/<%= item.SmallImg3.contentType %>;base64,<%=item.SmallImg3.data.toString('base64')%></span>
+            <span class="photo5">data:image/<%= item.SmallImg4.contentType %>;base64,<%=item.SmallImg4.data.toString('base64')%></span>
+            <span class="photo6">data:image/<%= item.SmallImg5.contentType %>;base64,<%=item.SmallImg5.data.toString('base64')%></span>
+            <span class="photo7">data:image/<%= item.SmallImg6.contentType %>;base64,<%=item.SmallImg6.data.toString('base64')%></span>
+            <span class="color1"><%= item.color1 %></span>
+            <span class="color2"><%= item.color2 %></span>
+            <span class="color3"><%= item.color3 %></span>
+            <span class="color4"><%= item.color4 %></span>
+            <span class="color5"><%= item.color5 %></span>
+            <span class="color6"><%= item.color6 %></span>
+            <span class="color7"><%= item.color7 %></span>
+            <span class="size1"><%= item.size1 %></span>
+            <span class="size2"><%= item.size2 %></span>
+            <span class="size3"><%= item.size3 %></span>
+            <span class="size4"><%= item.size4 %></span>
+            <span class="size5"><%= item.size5 %></span>
+            <span class="size6"><%= item.size6 %></span>
+            <span class="size7"><%= item.size7 %></span>
+            <span class="weight1"><%= item.weight1 %></span>
+            <span class="weight2"><%= item.weight2 %></span>
+            <span class="weight3"><%= item.weight3 %></span>
+            <span class="weight4"><%= item.weight4 %></span>
+            <span class="weight5"><%= item.weight5 %></span>
+            <span class="weight6"><%= item.weight6 %></span>
+            <span class="weight7"><%= item.weight7 %></span>
+            <span class="categories"><%= item.select_categry %></span>
+            <span class="status1"><%= item.status1 %></span>
+            <span class="status2"><%= item.status2 %></span>
+
+        </div>
+    <% }) %>
+
+    <% Categories.forEach(Category=> { %>
+        <div class="ObjectCategories" style="display: none;">
+            <span class="id"><%= Category._id %></span>
+            <span class="name"><%= Category.Namecategory %></span>
+            <span class="photo"><%= Category.image %></span>
+        </div>       
+    <% }) %>
+    
+    <div class="main">
+        <div class="pages">
+            <a href="/AdminControl">الطلبات</a>
+            <a href="/AddItem">اضافة صنف</a>
+            <a href="/AddCity">اضافة منطقة</a>
+            <a href="/AddCategory">اضافة قسم</a>
+        </div>
+        <section class="Confirm AddItem">
+            <h1 class="Title">اضافة صنف</h1>
+
+            <form action="/AddItem" method="POST" enctype="multipart/form-data" class="formItem">
+                <div class="container">
+                    <div class="img-div">
+                        <div class="upload main-upload">
+                            <img id="image.svg" class="img-item" src="Css/image.svg" alt="">
+                            <img class="imgloader" src="CSS/loader-GIF.gif" alt="" style="display: none;">
+                            <div class="input-icon">
+                                <input name="MainImg" class="file" type="file" accept="image/*" required>
+                            </div>
+                        </div>
+                        <div class="small-div">
+                            <div class="upload">
+                                <img id="image.svg" class="img-item" src="Css/image.svg" alt="">
+                                <img class="imgloader" src="CSS/loader-GIF.gif" alt="" style="display: none;">
+                                <div class="input-icon">
+                                    <input name="SmallImg1" class="file" type="file" accept="image/*" >
+                                </div>
+                            </div>
+                            <div class="upload">
+                                <img id="image.svg" class="img-item" src="Css/image.svg" alt="">
+                                <img class="imgloader" src="CSS/loader-GIF.gif" alt="" style="display: none;">
+                                <div class="input-icon">
+                                    <input name="SmallImg2" class="file" type="file" accept="image/*" >
+                                </div>
+                            </div>
+                            <div class="upload">
+                                <img id="image.svg" class="img-item" src="Css/image.svg" alt="">
+                                <img class="imgloader" src="CSS/loader-GIF.gif" alt="" style="display: none;">
+                                <div class="input-icon">
+                                    <input name="SmallImg3" class="file" type="file" accept="image/*" >
+                                </div>
+                            </div>
+                            <div class="upload">
+                                <img id="image.svg" class="img-item" src="Css/image.svg" alt="">
+                                <img class="imgloader" src="CSS/loader-GIF.gif" alt="" style="display: none;">
+                                <div class="input-icon">
+                                    <input name="SmallImg4" class="file" type="file" accept="image/*" >
+                                </div>
+                            </div>
+                            <div class="upload">
+                                <img id="image.svg" class="img-item" src="Css/image.svg" alt="">
+                                <img class="imgloader" src="CSS/loader-GIF.gif" alt="" style="display: none;">
+                                <div class="input-icon">
+                                    <input name="SmallImg5" class="file" type="file" accept="image/*" >
+                                </div>
+                            </div>
+                            <div class="upload">
+                                <img id="image.svg" class="img-item" src="Css/image.svg" alt="">
+                                <img class="imgloader" src="CSS/loader-GIF.gif" alt="" style="display: none;">
+                                <div class="input-icon">
+                                    <input name="SmallImg6" class="file" type="file" accept="image/*" >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-box">
+                            <label> اسم الصنف </label>
+                            <input name="NameItem" type="text" class="NameItem" placeholder="اسم الصنف" required>
+                        </div>
+                        <div class="input-box">
+                            <label> سعر الصنف </label>
+                            <input name="main_price" type="number" class="main-price" placeholder="سعر الصنف"
+                                required>
+                        </div>
+                        <div class="input-box">
+                            <label> السعر القديم </label>
+                            <input name="old_price" type="number" class="old-price" placeholder="السعر القديم">
+                        </div>
+                        <div class="input-box">
+                            <label> وصف الصنف </label>
+                            <input name="details" type="text" class="details" placeholder="وصف الصنف">
+                        </div>
+
+                        <div class="column flexnone activecolumn column-categry">
+                            <div class="input-box">
+                                <select name="select_categry" class="select-categry" required>
+                                    <option disabled value="NoCategry">اختار القسم</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <select name="status1" class="status1" required>
+                                    <option value="متوفر" selected>متوفر</option>
+                                    <option value="غير متوفر">غير متوفر</option>
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <select name="status2" class="status2">
+                                    <option disabled selected hidden value="">نشاط المنتج</option>
+                                    <option value="الاكثر مبيعاً">الاكثر مبيعاً</option>
+                                    <option value=""></option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="toggel-div" onclick="toggelcolor()">
+                            <h3>الالوان</h3>
+                            <div class="parent-toggel">
+                                <div class="color-toggel"></div>
+                            </div>
+                        </div>
+
+                        <div class="column flexnone color-div">
+                            <div class="input-box">
+                                <select name="color1" class="color1">
+                                    <option disabled selected hidden value="NoColor">لون 1</option>
+                                    <option value="red">احمر</option>
+                                    <option value="yellow">اصفر</option>
+                                    <option value="black">اسود</option>
+                                    <option value="white">ابيض</option>
+                                    <option value="brown">بني</option>
+                                    <option value="orange">برتقالي</option>
+                                    <option value="blue">ازرق</option>
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <select name="color2" class="color2">
+                                    <option disabled selected hidden value="NoColor">لون 2</option>
+                                    <option value="red">احمر</option>
+                                    <option value="yellow">اصفر</option>
+                                    <option value="black">اسود</option>
+                                    <option value="white">ابيض</option>
+                                    <option value="brown">بني</option>
+                                    <option value="orange">برتقالي</option>
+                                    <option value="blue">ازرق</option>
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <select name="color3" class="color3">
+                                    <option disabled selected hidden value="NoColor">لون 3</option>
+                                    <option value="red">احمر</option>
+                                    <option value="yellow">اصفر</option>
+                                    <option value="black">اسود</option>
+                                    <option value="white">ابيض</option>
+                                    <option value="brown">بني</option>
+                                    <option value="orange">برتقالي</option>
+                                    <option value="blue">ازرق</option>
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <select name="color4" class="color4">
+                                    <option disabled selected hidden value="NoColor">لون 4</option>
+                                    <option value="red">احمر</option>
+                                    <option value="yellow">اصفر</option>
+                                    <option value="black">اسود</option>
+                                    <option value="white">ابيض</option>
+                                    <option value="brown">بني</option>
+                                    <option value="orange">برتقالي</option>
+                                    <option value="blue">ازرق</option>
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <select name="color5" class="color5">
+                                    <option disabled selected hidden value="NoColor">لون 5</option>
+                                    <option value="red">احمر</option>
+                                    <option value="yellow">اصفر</option>
+                                    <option value="black">اسود</option>
+                                    <option value="white">ابيض</option>
+                                    <option value="brown">بني</option>
+                                    <option value="orange">برتقالي</option>
+                                    <option value="blue">ازرق</option>
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <select name="color6" class="color6">
+                                    <option disabled selected hidden value="NoColor">لون 6</option>
+                                    <option value="red">احمر</option>
+                                    <option value="yellow">اصفر</option>
+                                    <option value="black">اسود</option>
+                                    <option value="white">ابيض</option>
+                                    <option value="brown">بني</option>
+                                    <option value="orange">برتقالي</option>
+                                    <option value="blue">ازرق</option>
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <select name="color7" class="color7">
+                                    <option disabled selected hidden value="NoColor">لون 7</option>
+                                    <option value="red">احمر</option>
+                                    <option value="yellow">اصفر</option>
+                                    <option value="black">اسود</option>
+                                    <option value="white">ابيض</option>
+                                    <option value="brown">بني</option>
+                                    <option value="orange">برتقالي</option>
+                                    <option value="blue">ازرق</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="toggel-div" onclick="toggelsize()">
+                            <h3>المقاسات</h3>
+                            <div class="parent-toggel">
+                                <div class="size-toggel"></div>
+                            </div>
+                        </div>
+
+                        <div class="column flexnone size-div">
+                            <div class="input-box">
+                                <input name="size1" class="size1" type="text" placeholder="مقاس">
+                            </div>
+                            <div class="input-box">
+                                <input name="size2" class="size2" type="text" placeholder="مقاس">
+                            </div>
+                            <div class="input-box">
+                                <input name="size3" class="size3" type="text" placeholder="مقاس">
+                            </div>
+                            <div class="input-box">
+                                <input name="size4" class="size4" type="text" placeholder="مقاس">
+                            </div>
+                            <div class="input-box">
+                                <input name="size5" class="size5" type="text" placeholder="مقاس">
+                            </div>
+                            <div class="input-box">
+                                <input name="size6" class="size6" type="text" placeholder="مقاس">
+                            </div>
+                            <div class="input-box">
+                                <input name="size7" class="size7" type="text" placeholder="مقاس">
+                            </div>
+                        </div>
+
+                        <div class="toggel-div" onclick="toggelweight()">
+                            <h3>الاوزان</h3>
+                            <div class="parent-toggel">
+                                <div class="weight-toggel"></div>
+                            </div>
+                        </div>
+
+                        <div class="column flexnone special-column weight-div">
+                            <div class="input-box">
+                                <input name="weight1"  type="text" class="weight-in" placeholder="وزن">
+                            </div>
+                            <div class="input-box">
+                                <input name="price1"  type="number" class="price-in" placeholder="سعره">
+                            </div>
+                            <div class="input-box">
+                                <input name="weight2"  type="text" class="weight-in" placeholder="وزن">
+                            </div>
+                            <div class="input-box">
+                                <input name="price2"  type="number" class="price-in" placeholder="سعره">
+                            </div>
+                            <div class="input-box">
+                                <input name="weight3"  type="text" class="weight-in" placeholder="وزن">
+                            </div>
+                            <div class="input-box">
+                                <input name="price3"  type="number" class="price-in" placeholder="سعره">
+                            </div>
+                            <div class="input-box">
+                                <input name="weight4"  type="text" class="weight-in" placeholder="وزن">
+                            </div>
+                            <div class="input-box">
+                                <input name="price4"  type="number" class="price-in" placeholder="سعره">
+                            </div>
+                            <div class="input-box">
+                                <input name="weight5"" type="text" class="weight-in" placeholder="وزن">
+                            </div>
+                            <div class="input-box">
+                                <input name="price5"  type="number" class="price-in" placeholder="سعره">
+                            </div>
+                            <div class="input-box">
+                                <input name="weight6"  type="text" class="weight-in" placeholder="وزن">
+                            </div>
+                            <div class="input-box">
+                                <input name="price6"  type="number" class="price-in" placeholder="سعره">
+                            </div>
+                            <div class="input-box">
+                                <input name="weight7"  type="text" class="weight-in" placeholder="وزن">
+                            </div>
+                            <div class="input-box">
+                                <input name="price7"  type="number" class="price-in" placeholder="سعره">
+                            </div>
+
+                        </div>
+                        <button id="save" class="btn btnSave">حفظ الصنف</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="parent-table">
+                <table class="MyTable">
+                    <thead class="table-head">
+                        <tr>
+                            <td width="%">ID</td>
+                            <td>اسم الصنف</td>
+                            <td>السعر</td>
+                            <td>وصف الصنف</td>
+                            <td>القسم</td>
+                            <td>الحاله</td>
+                            <td>تعديل او حذف</td>
+
+                        </tr>
+                    </thead>
+                    <tbody class="table-body TableProdects">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+        </section>
+    </div>
+
+
+
+    <script src="Js/main.js"></script>
+    <script src="Js/AddItem.js"></script>
+    <script src="Js/GetData.js"></script>
+
+</body>
+
+</html>

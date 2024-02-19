@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="Css/style.css">
+    <title>Shary</title>
+</head>
+
+<body>
+    <header></header>
+    <% items.forEach(item=> { %>
+        <div class="ObjectProducts" style="display: none;">
+            <span class="id"><%= item._id %></span>
+            <span class="name"><%= item.NameItem %></span>
+            <span class="Details"><%= item.details %></span>
+            <span class="main_price"><%= item.main_price %></span>
+            <span class="old_price"><%= item.old_price %></span>
+            <span class="price1"><%= item.price1 %></span>
+            <span class="price2"><%= item.price2 %></span>
+            <span class="price3"><%= item.price3 %></span>
+            <span class="price4"><%= item.price4 %></span>
+            <span class="price5"><%= item.price5 %></span>
+            <span class="price6"><%= item.price6 %></span>
+            <span class="price7"><%= item.price7 %></span>
+            <span class="photo1">data:image/<%= item.MainImg.contentType %>;base64,<%=item.MainImg.data.toString('base64')%></span>
+            <span class="photo2">data:image/<%= item.SmallImg1.contentType %>;base64,<%=item.SmallImg1.data.toString('base64')%></span>
+            <span class="photo3">data:image/<%= item.SmallImg2.contentType %>;base64,<%=item.SmallImg2.data.toString('base64')%></span>
+            <span class="photo4">data:image/<%= item.SmallImg3.contentType %>;base64,<%=item.SmallImg3.data.toString('base64')%></span>
+            <span class="photo5">data:image/<%= item.SmallImg4.contentType %>;base64,<%=item.SmallImg4.data.toString('base64')%></span>
+            <span class="photo6">data:image/<%= item.SmallImg5.contentType %>;base64,<%=item.SmallImg5.data.toString('base64')%></span>
+            <span class="photo7">data:image/<%= item.SmallImg6.contentType %>;base64,<%=item.SmallImg6.data.toString('base64')%></span>
+            <span class="color1"><%= item.color1 %></span>
+            <span class="color2"><%= item.color2 %></span>
+            <span class="color3"><%= item.color3 %></span>
+            <span class="color4"><%= item.color4 %></span>
+            <span class="color5"><%= item.color5 %></span>
+            <span class="color6"><%= item.color6 %></span>
+            <span class="color7"><%= item.color7 %></span>
+            <span class="size1"><%= item.size1 %></span>
+            <span class="size2"><%= item.size2 %></span>
+            <span class="size3"><%= item.size3 %></span>
+            <span class="size4"><%= item.size4 %></span>
+            <span class="size5"><%= item.size5 %></span>
+            <span class="size6"><%= item.size6 %></span>
+            <span class="size7"><%= item.size7 %></span>
+            <span class="weight1"><%= item.weight1 %></span>
+            <span class="weight2"><%= item.weight2 %></span>
+            <span class="weight3"><%= item.weight3 %></span>
+            <span class="weight4"><%= item.weight4 %></span>
+            <span class="weight5"><%= item.weight5 %></span>
+            <span class="weight6"><%= item.weight6 %></span>
+            <span class="weight7"><%= item.weight7 %></span>
+            <span class="categories"><%= item.select_categry %></span>
+            <span class="status1"><%= item.status1 %></span>
+            <span class="status2"><%= item.status2 %></span>
+
+        </div>
+    <% }) %>
+
+    <div class="main">
+                <section class="Home">
+                    <div>
+                        <h1></h1>
+                        <p>تسوق اون لاين بسهوله و أمان ,</p>
+                        <p>تصفح كتالوجًا مليئًا بالعروض و التخفيضات واطلب البضائع الخاصة بك مباشرة على الموقع لتوفير
+                            المال
+                            والوقت
+                            ببضع نقرات وفي أي وقت، وفي أي مكان . </p>
+                        <a href="/Categories" class="btn">تسوق الآن</a>
+                    </div>
+                    <img src="Css/shopping2.svg" alt="">
+                </section>
+
+                <section class="Categories Services">
+                    <h1 class="Title">خدماتنا</h1>
+
+                    <div class="container">
+                        <div class="Cart">
+                            <img src="Css/delivery.svg" alt="">
+                            <h1> خدمة توصيل </h1>
+                        </div>
+
+                        <div class="Cart">
+                            <img src="Css/cash.svg" alt="">
+                            <h1>الدفع عن الاستلام </h1>
+                        </div>
+
+                        <div class="Cart">
+                            <img src="Css/back.svg" alt="">
+                            <h1>خدمة 24 ساعه</h1>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="products">
+                    <h1 class="Title">المنتجات الاكثر مبيعاً</h1>
+                    <div class="container"></div>
+                </section>
+    </div>
+
+
+    <script src="Js/main.js"></script>
+    <script src="Js/GetData.js"></script>
+
+</body>
+
+</html>

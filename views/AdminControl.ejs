@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="Css/style.css">
+    <title>Admin Page</title>
+</head>
+
+<body>
+
+    <header>
+    </header>
+
+    <% Orders.forEach(Order=> { %>
+        <div class="ObjectOrders" style="display: none;">
+            <span class="id"><%= Order._id %></span>
+            <span class="name"><%= Order.Name %></span>
+            <span class="Email"><%= Order.Email %></span>
+            <span class="Phone"><%= Order.Phone %></span>
+            <span class="City"><%= Order.City %></span>
+            <span class="Village"><%= Order.Village %></span>
+            <span class="Street"><%= Order.Street %></span>
+            <span class="Home"><%= Order.Home %></span>
+            <span class="Description"><%= Order.Description %></span>
+            <span class="Notes"><%= Order.Notes %></span>
+            <span class="SubTotal"><%= Order.SubTotal %></span>
+            <span class="Dilevery"><%= Order.Dilevery %></span>
+            <span class="Total"><%= Order.Total %></span>
+
+            
+            <% let MyArray = Order.NItem %>
+            <% MyArray.forEach((item , index) => { %>
+                <span class="NItem"><%= item %></span>                
+                <span class="QItem"><%= Order.QItem[index] %></span>                
+                <span class="CItem"><%= Order.CItem[index] %></span>                
+                <span class="SItem"><%= Order.SItem[index] %></span>                
+                <span class="WItem"><%= Order.WItem[index] %></span>                
+                <span class="PItem"><%= Order.PItem[index] %></span>                
+
+            <% }) %>
+    
+
+
+        </div>       
+    <% }) %>
+
+    
+    <div class="main">
+        <div class="pages">
+            <a href="/AdminControl">الطلبات</a>
+            <a href="/AddItem">اضافة صنف</a>
+            <a href="/AddCity">اضافة منطقة</a>
+            <a href="/AddCategory">اضافة قسم</a>
+        </div>
+        
+        <section class="OrderTable">
+
+            <h1 class="Title">الطلبات</h1>
+
+            <div class="parent-table">
+                <table class="MyTable">
+                    <thead class="table-head">
+                        <tr>
+                            <td width="%">ID</td>
+                            <td>اسم العميل</td>
+                            <td>الاميل</td>
+                            <td>الهاتف</td>
+                            <td>المنطقه</td>
+                            <td>الاجمالي</td>
+                            <td>حذف او عرض</td>
+                        </tr>
+                    </thead>
+                    <tbody class="table-body">
+                    </tbody>
+
+                </table>
+            </div>
+
+        </section>
+
+       
+
+    </div>
+
+
+
+    <script src="Js/main.js"></script>
+    <script src="Js/Orders.js"></script>
+</body>
+
+</html>
